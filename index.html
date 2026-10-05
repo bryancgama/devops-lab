@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bryan Catani Gama — SRE / DevOps. Infraestrutura, desenvolvimento backend e automação.">
+  <title>Bryan Gama · SRE / DevOps</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="#inicio" class="logo">bryan<span>@</span>devops-lab</a>
+    <nav class="nav" id="nav">
+      <a href="#sobre">Sobre</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#ferramentas">Ferramentas</a>
+      <a href="#stack">Este site</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="theme-toggle" aria-label="Alternar tema">◐</button>
+      <button class="icon-btn menu-btn" id="menu-toggle" aria-label="Abrir menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <p class="eyebrow">$ whoami</p>
+      <h1>Bryan Catani Gama</h1>
+      <p class="hero-sub">
+        <strong>SRE / DevOps.</strong> 7+ anos a operar infraestrutura em produção e 3+ anos
+        a desenvolver backend. Junto as duas coisas para manter sistemas fiáveis e automatizar a operação.
+      </p>
+      <div class="terminal" aria-hidden="true">
+        <div class="terminal-bar"><span></span><span></span><span></span></div>
+        <pre id="terminal-text"></pre>
+      </div>
+      <div class="hero-actions">
+        <a href="#experiencia" class="btn btn-primary">Ver experiência</a>
+        <a href="https://bryancgama.com" class="btn btn-ghost" target="_blank" rel="noopener">Portfólio</a>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="section" id="sobre">
+      <h2><span class="num">01</span> Sobre mim</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            Comecei na infraestrutura: servidores Windows e Linux, Active Directory,
+            redes segmentadas em VLANs, backups e monitorização com Zabbix. Fui supervisor
+            de TI e aprendi o que é manter sistemas de pé quando o negócio depende deles.
+          </p>
+          <p>
+            Depois passei para o desenvolvimento: robôs RPA em Java e Node.js, e aplicações
+            full stack com NestJS, TypeScript, PostgreSQL, React e Next.js.
+          </p>
+          <p>
+            Hoje trabalho como desenvolvedor independente em Portugal, com foco em
+            infraestrutura como código, contentores, pipelines e observabilidade.
+            Esta página é publicada com as mesmas práticas: <a href="#stack" class="link">veja como corre</a>.
+          </p>
+        </div>
+        <ul class="timeline">
+          <li><span class="when">2013–2022</span><span class="what">Infraestrutura de TI · Risotolândia</span></li>
+          <li><span class="when">2022</span><span class="what">Desenvolvedor RPA · Oystr</span></li>
+          <li><span class="when">2022–2025</span><span class="what">Full Stack · B&amp;M Logística Internacional</span></li>
+          <li class="now"><span class="when">2026–hoje</span><span class="what">Desenvolvedor independente · Portugal</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section class="section" id="experiencia">
+      <h2><span class="num">02</span> Experiência em operação</h2>
+      <p class="section-lead">
+        O que já fiz em ambientes reais, da rede ao código.
+      </p>
+      <div class="tools" id="highlights"></div>
+    </section>
+
+    <!-- FERRAMENTAS -->
+    <section class="section" id="ferramentas">
+      <h2><span class="num">03</span> DevOps e ferramentas</h2>
+      <p class="section-lead">
+        DevOps é cultura e prática para entregar software com rapidez e segurança.
+        SRE aplica engenharia de software à operação: medir a fiabilidade, automatizar o
+        trabalho repetitivo e aprender com cada incidente.
+      </p>
+      <div class="filters" id="filters">
+        <button class="chip active" data-filter="todas">Todas</button>
+        <button class="chip" data-filter="base">Base</button>
+        <button class="chip" data-filter="containers">Containers</button>
+        <button class="chip" data-filter="iac">IaC</button>
+        <button class="chip" data-filter="cicd">CI/CD</button>
+        <button class="chip" data-filter="observabilidade">Observabilidade</button>
+      </div>
+      <div class="tools" id="tools"></div>
+    </section>
+
+    <!-- STACK -->
+    <section class="section" id="stack">
+      <h2><span class="num">04</span> Como este site corre</h2>
+      <p class="section-lead">
+        Esta página é simples de propósito: o interesse está no caminho que faz do commit até ao browser.
+      </p>
+      <ol class="stack" id="stack-list"></ol>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section" id="contacto">
+      <h2><span class="num">05</span> Contacto</h2>
+      <div class="contact">
+        <a href="mailto:bcatanigama@hotmail.com" class="contact-card">
+          <span class="label">Email</span>
+          <span>bcatanigama@hotmail.com</span>
+        </a>
+        <a href="https://bryancgama.com" target="_blank" rel="noopener" class="contact-card">
+          <span class="label">Portfólio</span>
+          <span>bryancgama.com</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> Bryan Catani Gama</span>
+    <span class="build" id="build-info">versão: dev</span>
+  </footer>
+
+  <script src="js/version.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
