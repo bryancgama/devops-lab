@@ -1,11 +1,18 @@
-FROM nginx:1.29-alpine
+# Imagem oficial do Nginx preparada para correr sem root (utilizador nginx, uid 101)
+FROM nginxinc/nginx-unprivileged:1.29-alpine
 
 LABEL org.opencontainers.image.title="devops-lab" \
-org.opencontainers.image.source="https://github.com/bryancgama/devops-lab"
+      org.opencontainers.image.source="https://github.com/bryancgama/devops-lab"
 
-COPY . /usr/share/nginx/html
+# Configuração própria do Nginx
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 80
+# Só os ficheiros do site, explicitamente (README, nginx/ e .git ficam de fora)
+COPY index.html /usr/share/nginx/html/
+COPY css/ /usr/share/nginx/html/css/
+COPY js/  /usr/share/nginx/html/js/
+
+EXPOSE 8080
 
 HEALTHCHECK --interval=30s --timeout=3s --retries=3 \
- CMD wget -qO- http://localhost/ >/dev/null || exit 1
+  CMD wget -qO- http://localhost:8080/health || exit 1
