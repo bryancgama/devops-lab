@@ -1,0 +1,24 @@
+services:
+  web:
+    build: .
+    image: devops-lab:0.3
+    container_name: devops-lab
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+    # Endurecimento extra em tempo de execução
+    read_only: true                  # o sistema de ficheiros do contentor fica só de leitura
+    tmpfs:
+      - /tmp                         # exceção: o Nginx precisa de escrever o PID e ficheiros temporários
+    cap_drop:
+      - ALL                          # remove todas as "capacidades" especiais do Linux
+    security_opt:
+      - no-new-privileges:true       # impede ganhar privilégios (ex.: via setuid)
+
+    # Limites de recursos: um contentor descontrolado não derruba a máquina
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 64M
