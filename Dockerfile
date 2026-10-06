@@ -1,3 +1,5 @@
+# COPY index.html /usr/share/nginx/html/
+
 # Imagem oficial do Nginx preparada para correr sem root (utilizador nginx, uid 101)
 FROM nginxinc/nginx-unprivileged:1.29-alpine
 
