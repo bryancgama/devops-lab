@@ -6,9 +6,20 @@ on:
   pull_request:
 
 jobs:
-  build-test:
+  lint:
     runs-on: ubuntu-24.04
+    steps:
+      - name: Descarregar o código
+        uses: actions/checkout@v7
 
+      - name: Verificar o Dockerfile
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
+
+  build-test:
+    needs: lint
+    runs-on: ubuntu-24.04
     steps:
       - name: Descarregar o código
         uses: actions/checkout@v7
