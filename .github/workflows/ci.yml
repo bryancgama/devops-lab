@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Descarregar o código
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Construir a imagem
         run: docker build -t devops-lab:ci .
