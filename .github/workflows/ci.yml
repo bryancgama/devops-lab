@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Descarregar o código
+        uses: actions/checkout@v4
+
+      - name: Construir a imagem
+        run: docker build -t devops-lab:ci .
+
+      - name: Arrancar o contentor
+        run: docker run -d --name web -p 8080:8080 devops-lab:ci
+
+      - name: Testar o site
+        run: |
+          for i in $(seq 1 10); do
+            curl -fs http://localhost:8080/health && break
+            sleep 1
+          done
+          curl -fs http://localhost:8080/health | grep -q "ok"
+          curl -fs http://localhost:8080 | grep -q "Bryan Catani Gama"
+          echo "Site no ar e com o conteúdo certo"
+
+      - name: Mostrar logs se falhar
+        if: failure()
+        run: docker logs web
