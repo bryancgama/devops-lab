@@ -1,5 +1,5 @@
 # Imagem oficial do Nginx preparada para correr sem root (utilizador nginx, uid 101)
-FROM nginxinc/nginx-unprivileged:1.29-alpine
+FROM nginxinc/nginx-unprivileged:1.31-alpine
 
 LABEL org.opencontainers.image.title="devops-lab" \
       org.opencontainers.image.source="https://github.com/bryancgama/devops-lab"
